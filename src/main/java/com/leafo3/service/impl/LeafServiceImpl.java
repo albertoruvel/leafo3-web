@@ -49,6 +49,7 @@ public class LeafServiceImpl implements LeafService {
 
             //save image
             InputStream leafStream = content.getLeafStream();
+            log.info("Leaf image stream is null " + (leafStream == null));
             String imagePath;
             Object[] result = null;
             imagePath = fileService.saveImage(leafStream, leaf.getId(), FileService.FileType.ORIGINAL);

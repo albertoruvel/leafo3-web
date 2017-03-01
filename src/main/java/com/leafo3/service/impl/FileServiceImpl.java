@@ -11,6 +11,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.inject.Inject;
 import org.apache.commons.io.IOUtils;
@@ -28,6 +29,9 @@ public class FileServiceImpl implements FileService {
     @Inject
     @ApplicationProperty(name = "com.leafo3.processedleafs.directory", type = ApplicationProperty.Types.SYSTEM)
     private String processedImagesDirectory;
+    
+    @Inject
+    private Logger log;
 
     private static final double RAD = 0.3;
     private static final double EPS = 80;
@@ -50,6 +54,7 @@ public class FileServiceImpl implements FileService {
             default:
                 throw new IOException("No file type specified");
         }
+        log.info("Saving file " + file.getAbsolutePath());
         //save file 
         FileOutputStream stream = new FileOutputStream(file);
         byte[] bytes = IOUtils.toByteArray(content);
@@ -64,6 +69,7 @@ public class FileServiceImpl implements FileService {
     public Object[] processImage(String leafId) throws IOException {
         Object[] resultArray = new Object[2];
         File file = new File(imagesDirectory + leafId + ".jpg");
+        log.info("Processing image " + file.getAbsolutePath());
         BufferedImage bImage = ImageIO.read(file);
 
         int N = bImage.getHeight(), M = bImage.getWidth();
