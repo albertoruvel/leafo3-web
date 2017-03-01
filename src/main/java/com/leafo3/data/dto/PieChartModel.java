@@ -11,6 +11,11 @@ public class PieChartModel {
     public PieChartModel() {
     }
 
+    public PieChartModel(int count, String isoCode) {
+        this.count = count;
+        this.isoCode = isoCode;
+    }
+
     public int getCount() {
         return count;
     }

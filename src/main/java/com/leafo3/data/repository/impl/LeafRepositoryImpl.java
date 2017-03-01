@@ -114,18 +114,18 @@ public class LeafRepositoryImpl implements LeafRepository {
     }
 
     @Override
-    public List<DamageClassChart> getDamageByClassChartData() throws DataAccessException {
+    public List<Object[]> getDamageByClassChartData() throws DataAccessException {
         try {
             Query q = em.createNativeQuery("select count(*) count, iso_code isoCode, avg(damage_class) avg from leaf group by iso_code ");
-            List<DamageClassChart> map = q.getResultList();
-            return map;
+            
+            return q.getResultList();
         } catch (Exception ex) {
             throw new DataAccessException(ex.getMessage());
         }
     }
 
     @Override
-    public List<PieChartModel> getPieChartData() throws DataAccessException {
+    public List<Object[]> getPieChartData() throws DataAccessException {
         try {
             Query q = em.createNativeQuery("select count(*) count, iso_code isoCode from leaf group by iso_code");
             return q.getResultList();

@@ -12,6 +12,13 @@ public class DamageClassChart {
     public DamageClassChart() {
     }
 
+    public DamageClassChart(int count, String isoCode, double avg) {
+        this.count = count;
+        this.isoCode = isoCode;
+        this.avg = avg;
+    }
+    
+
     public int getCount() {
         return count;
     }

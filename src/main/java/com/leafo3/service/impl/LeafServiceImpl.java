@@ -15,7 +15,10 @@ import com.leafo3.service.FileService;
 import com.leafo3.service.LeafService;
 import java.io.IOException;
 import java.io.InputStream;
+import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
@@ -142,9 +145,12 @@ public class LeafServiceImpl implements LeafService {
             Response response = null;
 
             //get the map 
-            List<DamageClassChart> map = leafRepository.getDamageByClassChartData();
+            List<Object[]> map = leafRepository.getDamageByClassChartData();
+            List<DamageClassChart> list = new ArrayList();
+            for(Object[] model : map)
+                list.add(new DamageClassChart(((BigInteger)model[0]).intValue(), (String)model[1], ((BigDecimal)model[2]).doubleValue()));
             ListResponse<DamageClassChart> resp = new ListResponse<DamageClassChart>();
-            resp.setItems(map);
+            resp.setItems(list);
             response = Response.ok(resp).build();
             return response;
         } catch (DataAccessException ex) {
@@ -156,9 +162,12 @@ public class LeafServiceImpl implements LeafService {
     public Response getPieChartData() throws LeafO3Exception {
         try {
             Response response = null;
-            List<PieChartModel> map = leafRepository.getPieChartData();
+            List<Object[]> map = leafRepository.getPieChartData();
+            List<PieChartModel> list = new ArrayList();
+            for(Object[] model : map)
+                list.add(new PieChartModel(((BigInteger)model[0]).intValue(), (String)model[1]));
             ListResponse<PieChartModel> resp = new ListResponse<PieChartModel>();
-            resp.setItems(map);
+            resp.setItems(list);
             response = Response.ok(resp).build();
             
             return response;

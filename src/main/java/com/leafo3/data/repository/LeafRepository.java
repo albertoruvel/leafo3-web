@@ -59,13 +59,13 @@ public interface LeafRepository {
      *
      * @return @throws DataAccessException
      */
-    public List<DamageClassChart> getDamageByClassChartData() throws DataAccessException;
+    public List<Object[]> getDamageByClassChartData() throws DataAccessException;
 
     /**
      *
      * @return @throws DataAccessException
      */
-    public List<PieChartModel> getPieChartData() throws DataAccessException;
+    public List<Object[]> getPieChartData() throws DataAccessException;
 
     /**
      *
