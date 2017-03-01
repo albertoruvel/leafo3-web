@@ -146,7 +146,6 @@ public class LeafServiceImpl implements LeafService {
             ListResponse<DamageClassChart> resp = new ListResponse<DamageClassChart>();
             resp.setItems(map);
             response = Response.ok(resp).build();
-
             return response;
         } catch (DataAccessException ex) {
             throw new LeafO3Exception(ex.getMessage());
