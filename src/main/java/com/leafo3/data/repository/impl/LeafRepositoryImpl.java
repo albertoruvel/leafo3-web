@@ -1,6 +1,8 @@
 package com.leafo3.data.repository.impl;
 
+import com.leafo3.data.dto.DamageClassChart;
 import com.leafo3.data.dto.Page;
+import com.leafo3.data.dto.PieChartModel;
 import com.leafo3.data.entity.Leaf;
 import com.leafo3.data.repository.LeafRepository;
 import com.leafo3.exception.DataAccessException;
@@ -112,10 +114,10 @@ public class LeafRepositoryImpl implements LeafRepository {
     }
 
     @Override
-    public List<Map<String, Object>> getDamageByClassChartData() throws DataAccessException {
+    public List<DamageClassChart> getDamageByClassChartData() throws DataAccessException {
         try {
             Query q = em.createNativeQuery("select count(*) count, iso_code isoCode, avg(damage_class) avg from leaf group by iso_code ");
-            List<Map<String, Object>> map = q.getResultList();
+            List<DamageClassChart> map = q.getResultList();
             return map;
         } catch (Exception ex) {
             throw new DataAccessException(ex.getMessage());
@@ -123,7 +125,7 @@ public class LeafRepositoryImpl implements LeafRepository {
     }
 
     @Override
-    public List<Map<String, Object>> getPieChartData() throws DataAccessException {
+    public List<PieChartModel> getPieChartData() throws DataAccessException {
         try {
             Query q = em.createNativeQuery("select count(*) count, iso_code isoCode from leaf group by iso_code");
             return q.getResultList();

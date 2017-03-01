@@ -1,10 +1,11 @@
 package com.leafo3.service.impl;
 
-import com.leafo3.data.dto.DamageClassChartModel;
+import com.leafo3.data.dto.DamageClassChart;
 import com.leafo3.data.dto.FindResourceResponse;
 import com.leafo3.data.dto.LeafInfoFileContent;
 import com.leafo3.data.dto.LeafsResponse;
 import com.leafo3.data.dto.Page;
+import com.leafo3.data.dto.PieChartModel;
 import com.leafo3.data.entity.Leaf;
 import com.leafo3.data.repository.LeafRepository;
 import com.leafo3.exception.DataAccessException;
@@ -140,13 +141,9 @@ public class LeafServiceImpl implements LeafService {
             Response response = null;
 
             //get the map 
-            List<Map<String, Object>> map = leafRepository.getDamageByClassChartData();
+            List<DamageClassChart> map = leafRepository.getDamageByClassChartData();
 
-            DamageClassChartModel model = new DamageClassChartModel();
-            model.setData(map);
-            model.setSuccess(true);
-
-            response = Response.ok(model).build();
+            response = Response.ok(map).build();
 
             return response;
         } catch (DataAccessException ex) {
@@ -158,12 +155,8 @@ public class LeafServiceImpl implements LeafService {
     public Response getPieChartData() throws LeafO3Exception {
         try {
             Response response = null;
-            List<Map<String, Object>> map = leafRepository.getPieChartData();
-            DamageClassChartModel model = new DamageClassChartModel();
-            model.setData(map);
-            model.setSuccess(true);
-
-            response = Response.ok(model).build();
+            List<PieChartModel> map = leafRepository.getPieChartData();
+            response = Response.ok(map).build();
 
             return response;
         } catch (DataAccessException ex) {
