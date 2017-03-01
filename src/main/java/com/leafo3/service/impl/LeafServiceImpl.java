@@ -53,6 +53,8 @@ public class LeafServiceImpl implements LeafService {
             String imagePath;
             Object[] result = null;
             imagePath = fileService.saveImage(leafStream, leaf.getId(), FileService.FileType.ORIGINAL);
+            log.info("Saved original image");
+            log.info("Processing original image");
             result = fileService.processImage(leaf.getId());
             //get processed image path 
             final String processedImagePath = (String) result[0];

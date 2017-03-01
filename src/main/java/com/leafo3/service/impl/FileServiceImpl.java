@@ -42,6 +42,7 @@ public class FileServiceImpl implements FileService {
         if (!fileName.endsWith(".jpg")) {
             fileName = fileName.concat(".jpg");
         }
+        log.info("Saving file " + fileName + " to " + fileType);
         switch (fileType) {
             case ORIGINAL:
                 file = new File(imagesDirectory + fileName);
@@ -54,7 +55,6 @@ public class FileServiceImpl implements FileService {
             default:
                 throw new IOException("No file type specified");
         }
-        log.info("Saving file " + file.getAbsolutePath());
         //save file 
         FileOutputStream stream = new FileOutputStream(file);
         byte[] bytes = IOUtils.toByteArray(content);
@@ -161,6 +161,7 @@ public class FileServiceImpl implements FileService {
 
         //write the new image
         File resultFile = new File(processedImagesDirectory + leafId + ".jpg");
+        log.info("Result image set to " + resultFile.getAbsolutePath());
         ImageIO.write(result, "jpg", resultFile);
         double percentage = ((double) damage / (double) total) * 100f;
 
