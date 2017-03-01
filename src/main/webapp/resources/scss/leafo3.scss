@@ -1,0 +1,317 @@
+$text: #034422;
+$principal-color: #358234;
+$secondary-color: #02632E;
+html {
+    font-size: 15px;
+}
+body {
+    font-family: 'Roboto', sans-serif;
+    color: $text;
+    min-height: 100%;
+}
+body > section > .container {
+    margin-top: 5rem !important;
+    padding: 1rem 0;
+}
+.elevated {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+    border-radius: 2px;
+}
+
+/* LANDING PAGE */
+
+.welcome-section {
+    background: url("../img/background.jpg") no-repeat center top;
+    color: white;
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-attachment: fixed !important;
+}
+.arrow-down {
+    animation: animated-arrow-down 2s ease-in-out infinite;
+    text-align: center;
+}
+.arrow-down a {
+    display: inline-block;
+    color: white;
+}
+.arrow-down a i {
+    font-size: 4rem;
+}
+.header {
+    background: $principal-color;
+    color: white;
+    padding: .5rem 0;
+}
+.header .container {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.header .logo img {
+    width: 50px;
+    height: 50px;
+}
+.menu-button,
+.search-button {
+    border: 0;
+    font-size: 2rem;
+    margin: 0;
+    padding: 0 .5rem;
+    background: transparent;
+    color: white;
+}
+.menu-button:focus {
+    outline: 0;
+}
+@keyframes animated-arrow-down {
+    from {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(5px);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+.search-button {
+    margin-right: .8rem;
+    margin-left: auto;
+}
+#search-block {
+    flex: 1 1 100%;
+}
+.search-container-block {
+    display: flex;
+    height: 3rem;
+    margin: 1rem 0;
+}
+.search-container-block input[type="text"] {
+    flex: 1 1 auto;
+    border: 0;
+    border-radius: 5px 0 0 5px;
+    padding: 1rem;
+}
+.search-container-block input[type="submit"] {
+    flex: 0 1 auto;
+    border: 0;
+    border-radius: 0 5px 5px 0;
+    background: white;
+    color: $principal-color;
+    padding: 0 1rem;
+}
+#principal-menu {
+    flex: 1 1 100%;
+}
+#principal-menu ul {
+    padding: 0;
+    list-style: none;
+    margin: 1rem 0 0 0;
+}
+#principal-menu ul li a {
+    display: block;
+    padding: .8rem 0;
+    text-align: center;
+    color: white;
+    text-transform: uppercase;
+    border-top: 1px solid;
+    text-decoration: none;
+}
+#principal-menu ul li a:hover {
+    color: whiter;
+}
+#principal-menu ul li.active a {
+    color: white;
+}
+#principal-menu .dropdown-item {
+    margin: 0;
+    color: $principal-color;
+}
+.header-text {
+    //padding-top: 10rem;
+}
+.header-text {
+    padding-top: 0rem;
+    text-align: center;
+    flex: 1 1 auto;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.header-text .display-4 {
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+}
+.go-up i {
+    font-size: 3rem;
+}
+.go-up {
+    transition: all .5s ease;
+    border-radius: 50%;
+    background: $principal-color;
+    position: fixed;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    line-height: 0;
+    color: white;
+    text-decoration: none;
+    z-index: 99999;
+    display: none;
+}
+.go-up:hover,
+.go-up:focus {
+    outline: 0;
+    text-decoration: none;
+    color: white;
+    background: $secondary-color;
+}
+.dropdown-item:hover {
+    background-color: transparent;
+}
+
+/***********************************************
+* MAP
+***********************************************/
+
+.google-map {
+    width: 100%;
+    height: 70vh;
+}
+
+/***********************************************
+* ALERTS
+***********************************************/
+
+.alert {
+    margin: 0 1rem;
+}
+
+/***********************************************
+* BUTTONS
+***********************************************/
+
+.btn-primary {
+    color: white;
+    background-color: $principal-color;
+    border-color: transparent;
+}
+.btn-primary:active,
+.btn-primary:focus,
+.btn-primary:hover {
+    border-color: transparent;
+    background-color: $principal-color;
+    border-color: transparent;
+}
+.btn-info:active,
+.btn-info:focus,
+.btn-info:hover {
+    border-color: transparent;
+    color: $principal-color;
+    background-color: white;
+    border-color: transparent;
+}
+.btn-info {
+    color: $principal-color;
+    background-color: white;
+    border-color: transparent;
+}
+menu-dropdown.show {
+    background: white;
+}
+
+/***********************************************
+* Media queries
+***********************************************/
+
+@media (max-width: 544px) {
+    .text-xs-center {
+        text-align: center !important;
+    }
+}
+@media(min-width: 768px) {
+    #principal-menu {
+        height: auto !important;
+        display: block;
+        flex: 0 1 auto;
+        order: 1;
+        margin-left: auto;
+    }
+    #principal-menu ul {
+        display: flex;
+        margin: 0;
+    }
+    #principal-menu ul li a {
+        margin: 0;
+        padding: 1rem;
+        text-transform: capitalize;
+        margin: 0 1rem;
+        border-top: 0px;
+        border-bottom: 4px solid transparent;
+        transition: all .5s ease;
+    }
+    #principal-menu ul li.active a,
+    #principal-menu ul li a:hover {
+        color: white;
+        border-bottom: 4px solid transparent;
+    }
+    .search-button {
+        margin-right: 0;
+        margin-left: 1rem;
+        order: 2;
+    }
+    #search-block {
+        order: 3;
+        position: absolute;
+        width: 20rem;
+        right: 3rem;
+        top: 2.5rem;
+        //transition: all 1s ease;
+    }
+}
+@media(min-width: 992px) {
+    #principal-menu {
+        height: auto !important;
+        display: block;
+        flex: 0 1 auto;
+        order: 1;
+        margin-left: auto;
+    }
+    #principal-menu ul {
+        display: flex;
+        margin: 0;
+    }
+    #principal-menu ul li a {
+        margin: 0;
+        padding: 1rem;
+        text-transform: capitalize;
+        margin: 0 1rem;
+        border-top: 0px;
+        border-bottom: 4px solid transparent;
+        transition: all .5s ease;
+    }
+    #principal-menu ul li.active a,
+    #principal-menu ul li a:hover {
+        color: white;
+        border-bottom: 4px solid transparent;
+    }
+    .search-button {
+        margin-right: 0;
+        margin-left: 1rem;
+        order: 2;
+    }
+    #search-block {
+        order: 3;
+        position: absolute;
+        width: 20rem;
+        right: 3rem;
+        top: 2.5rem;
+        transition: all 1s ease;
+    }
+    body {
+        font-size: 16px;
+    }
+}
+@media(min-width: 1200px) {}

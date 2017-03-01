@@ -1,0 +1,3 @@
+$('#searchBox').on('keyup', function(){
+    
+}); 

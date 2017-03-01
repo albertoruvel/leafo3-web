@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>LeafO3</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <!-- css links -->
+    <link rel="stylesheet" href="resources/css/bootstrap.css">
+    <link rel="stylesheet" href="resources/css/leafo3.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Welcome section -->
+    <section class="welcome-section">
+        <header class="header navbar-fixed-top" role="banner">
+            <div class="container">
+                <a href="index.html" class="logo">
+                    <img src="resources/img/icon.png" alt="Logo">
+                </a>
+                <!-- menu buttons -->
+                <button type="button" class="search-button menu-button" data-toggle="collapse" data-target="#search-block" aria-expanded="false">
+                    <i class="material-icons">search</i>
+                </button>
+                <button type="button" class="menu-button hidden-md-up" data-toggle="collapse" data-target="#principal-menu" aria-expanded="false">
+                    <i class="material-icons">menu</i>
+                </button>
+
+                <!-- search block -->
+                <form action="#" id="search-block" class="collapse">
+                    <div class="search-container-block">
+                        <input type="text" placeholder="Search...">
+                        <input type="submit" value="Search">
+                    </div>
+                </form>
+
+                <nav id="principal-menu" class="collapse">
+                    <ul>
+                        <li class="active"><a href="index.html">Home</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <div class="header-text text-xs-center py-4">
+
+            <h4>Help taking care of mother nature</h4>
+            <!-- map goes here -->
+            <div id="map" class="google-map">
+
+            </div>
+
+        </div>
+    </section>
+
+    <section>
+
+    </section>
+
+    <!-- load js scripts -->
+    <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.1/knockout-min.js'></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCg7smfLhKgtLDWEWRuFoxQLBdq0J10rUs&callback=getLocation">
+
+
+    </script>
+    <script src="https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js"></script>
+    <script src="resources/js/jquery-3.1.1.min.js"></script>
+    <script src="resources/js/bootstrap.min.js"></script>
+    <script src="resources/js/app/site.js"></script>
+</body>
+
+</html>
