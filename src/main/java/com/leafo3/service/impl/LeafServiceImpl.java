@@ -4,6 +4,7 @@ import com.leafo3.data.dto.DamageClassChart;
 import com.leafo3.data.dto.FindResourceResponse;
 import com.leafo3.data.dto.LeafInfoFileContent;
 import com.leafo3.data.dto.LeafsResponse;
+import com.leafo3.data.dto.ListResponse;
 import com.leafo3.data.dto.Page;
 import com.leafo3.data.dto.PieChartModel;
 import com.leafo3.data.entity.Leaf;
@@ -142,8 +143,9 @@ public class LeafServiceImpl implements LeafService {
 
             //get the map 
             List<DamageClassChart> map = leafRepository.getDamageByClassChartData();
-
-            response = Response.ok(map).build();
+            ListResponse<DamageClassChart> resp = new ListResponse<DamageClassChart>();
+            resp.setItems(map);
+            response = Response.ok(resp).build();
 
             return response;
         } catch (DataAccessException ex) {
@@ -156,8 +158,10 @@ public class LeafServiceImpl implements LeafService {
         try {
             Response response = null;
             List<PieChartModel> map = leafRepository.getPieChartData();
-            response = Response.ok(map).build();
-
+            ListResponse<PieChartModel> resp = new ListResponse<PieChartModel>();
+            resp.setItems(map);
+            response = Response.ok(resp).build();
+            
             return response;
         } catch (DataAccessException ex) {
             throw new LeafO3Exception(ex.getMessage());
