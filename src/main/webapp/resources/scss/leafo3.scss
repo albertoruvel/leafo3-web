@@ -7,7 +7,6 @@ html {
 body {
     font-family: 'Roboto', sans-serif;
     color: $text;
-    min-height: 100%;
 }
 body > section > .container {
     margin-top: 5rem !important;
@@ -178,7 +177,7 @@ body > section > .container {
 
 .google-map {
     width: 100%;
-    height: 70vh;
+    height: 100vh;
 }
 
 /***********************************************
@@ -222,6 +221,33 @@ menu-dropdown.show {
     background: white;
 }
 
+#instructions-section{
+    background: $principal-color;
+    color: white;
+}
+
+.instructions-carousel{
+}
+
+#instructions-section .container{
+    margin-top: 0 !important;
+}
+
+.carousel-item img{
+    width: 80%;
+    height: 280px;
+    margin: 0 auto;
+}
+.play-container{
+    width: 100%;
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+}
+.play-container img{
+    width: 40%;
+    margin: 0 auto;
+}
 /***********************************************
 * Media queries
 ***********************************************/
@@ -269,6 +295,16 @@ menu-dropdown.show {
         right: 3rem;
         top: 2.5rem;
         //transition: all 1s ease;
+    }
+
+    .play-container img{
+        width: 60%;
+        margin: 0 auto;
+    }
+    .carousel-item img{
+        width: 70%;
+        height: 250px;
+        margin: 0 auto;
     }
 }
 @media(min-width: 992px) {
