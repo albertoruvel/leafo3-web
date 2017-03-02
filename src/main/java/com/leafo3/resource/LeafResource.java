@@ -76,4 +76,11 @@ public class LeafResource {
     public Response getLeafImage(@QueryParam("leafId")String leafId, @DefaultValue("1") @QueryParam("imageType")int fileType)throws LeafO3Exception{
         return service.getLeafImage(leafId, fileType);
     }
+    
+    @GET
+    @Path("apk")
+    @Produces("application/vnd.android.package-archive")
+    public Response downloadApk()throws LeafO3Exception{
+        return service.getAndroidApplicationFile(); 
+    }
 }

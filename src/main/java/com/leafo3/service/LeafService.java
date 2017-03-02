@@ -19,4 +19,6 @@ public interface LeafService {
     public Response getLeafs()throws LeafO3Exception;
 
     public Response getLeafImage(String leafId, int fileType)throws LeafO3Exception;
+
+    public Response getAndroidApplicationFile() throws LeafO3Exception;
 }

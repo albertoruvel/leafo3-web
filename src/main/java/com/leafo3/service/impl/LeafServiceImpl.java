@@ -13,6 +13,7 @@ import com.leafo3.exception.DataAccessException;
 import com.leafo3.exception.LeafO3Exception;
 import com.leafo3.service.FileService;
 import com.leafo3.service.LeafService;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.math.BigDecimal;
@@ -258,6 +259,7 @@ public class LeafServiceImpl implements LeafService {
         }
     }
 
+    @Override
     public Response getLeafImage(String leafId, int fileType) throws LeafO3Exception {
         try{
             InputStream stream = null;
@@ -274,6 +276,18 @@ public class LeafServiceImpl implements LeafService {
             return Response.ok(stream).build();
         }catch(IOException ex){
             throw new LeafO3Exception(ex.getMessage());
+        }
+    }
+
+    @Override
+    public Response getAndroidApplicationFile() throws LeafO3Exception {
+        try{
+            File file = fileService.getAndroidApplicationFile(); 
+            return Response.ok((Object)file)
+                    .header("Content-Disposition", "attachment;filename=\"leafo3.apk\"")
+                    .build(); 
+        }catch(IOException ex){
+            throw new LeafO3Exception(ex.getMessage()); 
         }
     }
 

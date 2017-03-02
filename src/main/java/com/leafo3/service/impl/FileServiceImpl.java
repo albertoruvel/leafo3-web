@@ -6,6 +6,7 @@ import java.awt.Color;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -29,6 +30,10 @@ public class FileServiceImpl implements FileService {
     @Inject
     @ApplicationProperty(name = "com.leafo3.processedleafs.directory", type = ApplicationProperty.Types.SYSTEM)
     private String processedImagesDirectory;
+    
+    @Inject
+    @ApplicationProperty(name = "com.leafo3.android.current.version", type = ApplicationProperty.Types.SYSTEM)
+    private String apkFilePath; 
     
     @Inject
     private Logger log;
@@ -199,6 +204,7 @@ public class FileServiceImpl implements FileService {
         return hr;
     }
 
+    @Override
     public InputStream getStream(FileType type, String leafId) throws IOException {
         File file = null;
         switch(type){
@@ -211,5 +217,12 @@ public class FileServiceImpl implements FileService {
         }
         
         return new FileInputStream(file);
+    }
+
+    @Override
+    public File getAndroidApplicationFile() throws IOException {
+        File file = new File(apkFilePath); 
+        if(file.exists())return file; 
+        else throw new FileNotFoundException("No such file: " + apkFilePath); 
     }
 }
